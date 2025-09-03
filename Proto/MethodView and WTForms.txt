@@ -1,0 +1,37 @@
+1️⃣ MethodView
+
+Think of it like this:
+Normally in Flask you write routes like this:
+
+@app.route("/hello", methods=["GET", "POST"])
+def hello():
+    if request.method == "GET":
+        return "This is GET"
+    elif request.method == "POST":
+        return "This is POST"
+
+
+With MethodView, instead of writing one big function, you can split GET, POST, PUT, DELETE into separate functions inside a class:
+it's a class based view that dispatches request methods to the corresponding class method 
+
+#Here this code use the MethodView class for flask.views
+from flask import Flask, request
+from flask.views import MethodView
+
+app = Flask(__name__)
+
+class HelloView(MethodView):
+    def get(self):
+        return "This is GET"
+
+    def post(self):
+        return "This is POST"
+
+app.add_url_rule("/hello", view_func=HelloView.as_view("hello_view"))
+
+app.run()
+
+
+🔹 Why use it?
+It’s cleaner when your route has to handle many HTTP methods.
+Instead of one messy if request.method == ..., you just write separate methods in a class.
