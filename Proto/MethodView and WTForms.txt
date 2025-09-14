@@ -35,3 +35,28 @@ app.run()
 🔹 Why use it?
 It’s cleaner when your route has to handle many HTTP methods.
 Instead of one messy if request.method == ..., you just write separate methods in a class.
+
+2️⃣ WTForms
+
+    What is a Form and WTForms(InShort)
+    - Forms are data-entry structures that let users input and submit data (like login, signup, or payment forms).
+    - In WTForms, a Form is a Python class that defines those inputs in code and handles validation.
+
+    General meaning (HTML/Web)
+    - A form is simply a way for a user to enter data and send it to the server
+        Sample HTML Form
+        <form method="post" action="/submit">
+            <label for="amt">Bill Amount:</label>
+            <input type="text" id="amt" name="amt">
+            <input type="submit" value="Submit">
+        </form>
+        Here:
+        - <form> is the container.
+        - <input> is the field where the user types.
+        - When submitted, the browser sends the values to the server.
+    In Python WTForms
+        WTForms abstracts this idea into Python classes
+            - Form (singular, capital F) → a Python class that represents a whole HTML form.
+            - Inside it, you define fields (like StringField, IntegerField, PasswordField).
+            - Each field in the Python class becomes an <input> (or similar) in HTML.
+        
