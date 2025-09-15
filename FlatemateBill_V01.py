@@ -1,6 +1,6 @@
 from flask import Flask,render_template
 from flask.views import MethodView
-from wtforms import Form,StringField
+from wtforms import Form,StringField,SubmitField
 
 app = Flask(__name__)
 
@@ -22,6 +22,8 @@ class BillForm(Form):
     #Second FlateMate
     name2 = StringField(label="Name:")
     days_in_house2 = StringField(label="Days in house:")
+
+    button = SubmitField("Calculate")
 
 
 # Adding the url 
