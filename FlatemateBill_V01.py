@@ -9,11 +9,13 @@ class Homepage(MethodView):
         return render_template("index.html")
 class BillFormPage(MethodView):
     def get(self):
-        return render_template("bill_form_page.html")
+        bill_form = BillForm()
+        return render_template("bill_form_page.html",billform = bill_form)
 class ResultPage(MethodView):
     pass    
 class BillForm(Form):
-    pass
+    bill_amt = StringField(label="Bill Amount:")
+    bill_period = StringField(label="Bill Period:")
 
 # Adding the url 
 """
