@@ -4,6 +4,24 @@
         <title>Bill Form</title>
     </head>
     <body>
-      <h2>Bill Form</h2>  
+      <h2>Bill Form</h2> 
+      <form>
+        {{billform.bill_amt.label}} {{billform.bill_amt}}
+        <br>
+        {{billform.bill_period.label}} {{billform.bill_period}}
+        <hr>
+
+        <p>First FlateMate</p>
+        {{billform.name1.label}} {{billfrom.name1}}
+        <br>
+        {{billform.days_in_house1.label}} {{billform.days_in_house1}}
+        <hr>
+
+        <p>Second FlateMate</p>
+        {{billform.name2.label}} {{billform.name2}}
+        <br>
+        {{billform.days_in_house2}} {{billform.days_in_house2}}
+        
+      </form> 
     </body>
 </HTML>
