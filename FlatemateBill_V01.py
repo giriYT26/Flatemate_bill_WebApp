@@ -16,6 +16,13 @@ class ResultPage(MethodView):
 class BillForm(Form):
     bill_amt = StringField(label="Bill Amount:")
     bill_period = StringField(label="Bill Period:")
+    #First FlateMate
+    Name1 = StringField(label="Name:")
+    days_in_house1 = StringField(label="Days in house:")
+    #Second FlateMate
+    name2 = StringField(label="Name:")
+    days_in_house2 = StringField(label="Days in house:")
+
 
 # Adding the url 
 """
