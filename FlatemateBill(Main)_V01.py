@@ -24,7 +24,10 @@ class ResultPage(MethodView):
         flatemate1 = Flatemate(billform.name1.data,float(billform.days_in_house1.data))
         flatemate2 = Flatemate(billform.name2.data,float(billform.days_in_house2.data))
 
-        return f"{flatemate1.name} {flatemate1.pays(the_bill,flatemate2)}"
+        return render_template("results_page.html",
+                               name1 = flatemate1.name,amount1 =flatemate1.pays(the_bill,flatemate2),
+                               name2 = flatemate2.name,amount2 = flatemate2.pays(the_bill,flatemate1))
+    #f"{flatemate1.name} {flatemate1.pays(the_bill,flatemate2)}"
     
 class BillForm(Form):
     bill_amt = StringField(label="Bill Amount:")
