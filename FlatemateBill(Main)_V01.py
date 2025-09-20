@@ -18,13 +18,13 @@ class ResultPage(MethodView):
     def post(self):
         billform = BillForm(request.form)
 
-        bill_amount = billform.bill_amt.data
+        bill_amount = float(billform.bill_amt.data)
         bill_period = billform.bill_period
         the_bill = Bill(bill_amount,bill_period)
-        flatemate1 = Flatemate(billform.name1.data,billform.days_in_house1.data)
-        flatemate2 = Flatemate(billform.name2.data,billform.days_in_house2.data)
+        flatemate1 = Flatemate(billform.name1.data,float(billform.days_in_house1.data))
+        flatemate2 = Flatemate(billform.name2.data,float(billform.days_in_house2.data))
 
-        return f"{flatemate1.name} {flatemate1.pays}"
+        return f"{flatemate1.name} {flatemate1.pays(the_bill,flatemate2)}"
     
 class BillForm(Form):
     bill_amt = StringField(label="Bill Amount:")
