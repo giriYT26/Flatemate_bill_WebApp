@@ -5,19 +5,28 @@
     <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-    <h1>Welcome to Flatemate Bill Splitter</h1>
-    <h2>About This Page</h2>
-    <p id="para1">
-        This web application helps flatemates easily calculate and split their household bills 
-        based on the number of days each person has stayed in the house.<br>  
-        Simply fill in the bill amount, the billing period, and the number of days each flatemate stayed.  
-        The app will calculate how much each person needs to contribute.
-    </p>
-    <p id ="para2">
-        <h3>In Short</h3>
-        In this webapp we can split the bill between two room mates<br>
-        Click the Link below</p>
-    <a href={{url_for('Bill_Form_Page')}}> Go to bill page</a>
+    <div class = "header">
+        <h1>Welcome to Flatemate Bill Splitter</h1>
+    </div>
+    <section id = "About" class = "section">
+        <h2>About This Page</h2>
+        <p>
+            This web application helps flatemates easily calculate and split their household bills 
+            based on the number of days each person has stayed in the house.<br>  
+            Simply fill in the bill amount, the billing period, and the number of days each flatemate stayed.  
+            The app will calculate how much each person needs to contribute.
+        </p>
+    </section>
+
+    <section id= "Summary" class="section">
+            <h3>In Short</h3>
+            <p> 
+                In this webapp we can split the bill between two room mates<br>
+                Click the Link below to view the webapp
+            </p>
+    
+        <a href={{url_for('Bill_Form_Page')}} class="btn"> Go to bill page</a>
+    </section>
 
 </body>
 </html>
