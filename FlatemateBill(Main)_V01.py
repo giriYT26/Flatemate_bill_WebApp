@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request
 from flask.views import MethodView
 from wtforms import Form,StringField,SubmitField
-from Bill_V01 import Bill,Flatemate
+from Bill_V01 import Bill,flatmate
 
 app = Flask(__name__)
 
@@ -21,21 +21,21 @@ class ResultPage(MethodView):
         bill_amount = float(billform.bill_amt.data)
         bill_period = billform.bill_period
         the_bill = Bill(bill_amount,bill_period)
-        flatemate1 = Flatemate(billform.name1.data,float(billform.days_in_house1.data))
-        flatemate2 = Flatemate(billform.name2.data,float(billform.days_in_house2.data))
+        flatmate1 = flatmate(billform.name1.data,float(billform.days_in_house1.data))
+        flatmate2 = flatmate(billform.name2.data,float(billform.days_in_house2.data))
 
         return render_template("results_page.html",
-                               name1 = flatemate1.name,amount1 =flatemate1.pays(the_bill,flatemate2),
-                               name2 = flatemate2.name,amount2 = flatemate2.pays(the_bill,flatemate1))
-    #f"{flatemate1.name} {flatemate1.pays(the_bill,flatemate2)}"
+                               name1 = flatmate1.name,amount1 =flatmate1.pays(the_bill,flatmate2),
+                               name2 = flatmate2.name,amount2 = flatmate2.pays(the_bill,flatmate1))
+    #f"{flatmate1.name} {flatmate1.pays(the_bill,flatmate2)}"
     
 class BillForm(Form):
     bill_amt = StringField(label="Bill Amount:")
     bill_period = StringField(label="Bill Period:")
-    #First FlateMate
+    #First flatmate
     name1 = StringField(label="Name:")
     days_in_house1 = StringField(label="Days in house:")
-    #Second FlateMate
+    #Second flatmate
     name2 = StringField(label="Name:")
     days_in_house2 = StringField(label="Days in house:")
 

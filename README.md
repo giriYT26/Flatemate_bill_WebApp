@@ -1,1 +1,1 @@
-# Flatemate_bill_WebApp
+# flatmate_bill_WebApp
